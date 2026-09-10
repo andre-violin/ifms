@@ -126,6 +126,17 @@ app.patch('/users/:id', async (req, res) => {
   res.json(user)  // 200 OK com recurso mesclado
 })
 
+app.delete('/users/:id', async (req, res) => {
+  const id = Number(req.params.id);
+  const users = await readUsers();
+  const user = users.findIndex((u) => u.id === id);
+  if (!user) return res.status(404).json({ erro: "Usuário não encontrado" });
+
+  user.deletedAt = new Date().toISOString();
+  await writeUsers(users);
+  res.status(204).json({ message: "Usuário removido com sucesso" });
+});
+
 app.get("/products", async (req, res) => {
   const { min } = req.query;
   let products = await readProducts();

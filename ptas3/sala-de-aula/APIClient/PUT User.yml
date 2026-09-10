@@ -1,19 +1,17 @@
 info:
   name: PUT User
   type: http
+  seq: 4
 
 http:
   method: PUT
-  url: "{{base}}/users/1"
+  url: "{{url}}/users/7"
   body:
     type: json
     data: |-
       {
-          "id": 1,
-          "nome": "Ana Júlia",
-          "idade": 15,
-          "email": "ana_julia@email.com"
-        }
+        "email": "jurema@email.com"
+      }
   auth: inherit
 
 settings:

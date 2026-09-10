@@ -1,20 +1,17 @@
 info:
   name: PATCH User
   type: http
-  seq: 6
+  seq: 5
 
 http:
   method: PATCH
-  url: "{{base}}/users/1"
+  url: "{{url}}/users/8"
   body:
     type: json
     data: |-
       {
-          "id": 1,
-          "nome": "Ana Júlia",
-          "idade": 15,
-          "email": "anajulia@email.com"
-        }
+        "deletedAt": null
+      }
   auth: inherit
 
 settings:
